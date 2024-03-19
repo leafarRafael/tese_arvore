@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   funcoes_temporarias.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:01:18 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/03/17 14:09:27 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/03/19 13:06:43 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,31 @@ void	ft_print_array_lst(t_array_lst *array)
 {
 	t_a_nd		*c;
 	int			i;
+	int aspa;
 
+	aspa = 0;
 	i = 0;
 	c = array->head;
+	printf("\n");
 	while (i != array->size)
 	{
-		printf("%c", c->c);
+		if (c->type == DOUBLE_QUOTES)
+		{
+			if (aspa == 1)
+				aspa--;
+			else
+				aspa++;
+		}
+		if (c->type != 11)
+			printf("[%c]", c->c);
+		if (c->type == 11 && aspa == 1)
+			printf("[%c]", c->c);
+		if (c->type == 11 && aspa == 0)
+		{
+			printf("%d", c->prev->type);
+			printf("\n");
+
+		}
 		c = c->next;
 		i++;
 	}
