@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_words.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 13:39:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/03/19 11:20:14 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/03/20 13:12:42 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ typedef enum s_type
 
 }       t_type;
 
-int	is_white_space(char c);
-int	is_hero_doc(char c, char n_c);
-int	is_redirect_apend(char c, char n_c);
-int	is_or(char c, char n_c);
-int	is_and(char c, char n_c);
+int is_white_space(char c);
+int is_hero_doc(char c, char n_c);
+int is_redirect_apend(char c, char n_c);
+int is_or(char c, char n_c);
+int is_and(char c, char n_c);
+int ft_type_of_operator(char c);
+int ft_type_of_operator_com(char c, char n_c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 09:42:27 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/03/17 14:34:55 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/03/21 11:13:34 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,25 @@ typedef	struct s_array_lst
 	int		size;
 }		t_array_lst;
 
+typedef struct s_variables
+{
+	t_a_nd	*temp_node;
+	int		i;
+	int		type_simple_char;
+	int		type_multi_char;
+	int		index_y;
+	int		in_s_quotes;
+	int		in_d_quotes;
+	int		type;
+}		t_v;
+
 void		ft_add_back(t_ast *tree, char *token);
+void		ft_del_node_front(t_array_lst *lst);
 void		ft_c_array_list_add_node(t_array_lst *l_array, char c);
 t_array_lst	*ft_init_array_lst(void);
 t_ast		*init_ast(void);
-
+void		ft_scaner_type(t_array_lst *array);
+void		ft_split_array_lst(t_array_lst *array);
 
 /*
 		FUNÇÕES TEMPORARIAS DEBUG
@@ -67,5 +81,6 @@ void	ft_print_array_lst(t_array_lst *array);
 void	ft_print_tree(t_ast *tree);
 void	ft_copy_argv_to_ast(t_ast *tree, char **argv);
 void	ft_init_lst_array(t_array_lst *array, char *input);
+void	ft_print_array_lst_simple(t_array_lst *array);
 
 #endif

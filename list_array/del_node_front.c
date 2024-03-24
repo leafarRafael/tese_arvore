@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   del_node_front.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 09:42:20 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/03/21 18:25:12 by rbutzke          ###   ########.fr       */
+/*   Created: 2024/03/21 10:39:40 by rbutzke           #+#    #+#             */
+/*   Updated: 2024/03/21 12:34:01 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "binary_trees.h"
 
-int	main(int argc, char *argv[])
+void	ft_del_node_front(t_array_lst *lst)
 {
-	char		*input;
-	t_array_lst	*array;
-	t_ast		*tree;
+	t_a_nd *first;
+	t_a_nd *second;
 
-	tree = init_ast();
-	input = readline("Minishell >>: ");
-	array = ft_init_array_lst();
-	ft_init_lst_array(array, input);
-	ft_scaner_type(array);
-	ft_split_array_lst(array);
-	ft_print_array_lst_simple(array);
-	free(input);
-	return (1);
+	if (!lst)
+		return ;
+	if (!lst->head)
+		return ;
+	if (!lst->last)
+		return ;
+	first = lst->head;
+	second = lst->head->next;
+	second->prev = lst->last;
+	lst->last->next = second;
+	lst->head = second;
+	lst->size--;
+	free(first);
 }

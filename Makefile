@@ -8,7 +8,11 @@ FILES			:=./list/create_add_back.c\
 				./list/init_ast.c\
 				./list_array/create_add_back_array_list.c\
 				./list_array/init_array_lst.c\
+				./list_array/del_node_front.c\
 				./funcoes_temporarias.c\
+				./parser/helper_scaner.c\
+				./parser/scaner_type.c\
+				./parser/token.c\
 				./main.c\
 
 INCLUDE			:= -I ./include -I ./lib/lib_get_print/includes
@@ -20,7 +24,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(FILES)
 
 $(NAME):
-	@$(CC) $(FILES) $(LIBFT) $(INCLUDE) -o $(NAME) -lreadline
+	@$(CC) $(FILES) $(LIBFT) $(INCLUDE) -o $(NAME) -lreadline -g
 
 $(LIBFT): libft
 
